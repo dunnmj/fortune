@@ -1,3 +1,4 @@
+# coding=utf-8
 from gpiozero import LED, Button
 import random
 from image_utils import ImageText
