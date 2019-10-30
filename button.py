@@ -4,7 +4,7 @@ from image_utils import ImageText
 import os
 
 button = Button(17)
-led = PWMLED(2)
+led = PWMLED(18)
 
 
 def printfortune():
