@@ -3,6 +3,7 @@ from gpiozero import PWMLED, Button
 import random
 from image_utils import ImageText
 import os
+from time import sleep
 
 button = Button(17)
 led = PWMLED(18)
