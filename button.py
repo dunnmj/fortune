@@ -1,9 +1,14 @@
+from gpiozero import LED, Button
 import random
 from image_utils import ImageText
 import os
 
-def printfortune():
+button = Button(17)
+led = PWMLED(2)
 
+
+def printfortune():
+    led.value = 1
     fortune_list = [
         'A beautiful, smart, and loving person will be coming into your life.',
         'A dubious friend may be an enemy in camouflage.',
@@ -367,16 +372,21 @@ def printfortune():
     color = (0, 0, 0)
     text = 'Python is a cool programming language. You should learn it!'
     font = 'PAPYRUS.TTF'
-    img = ImageText("ornate.jpg", background=(255, 255, 255, 200)) # 200 = alpha
-
+    img = ImageText("ornate.jpg", background=(255, 255, 255, 200))  # 200 = alpha
 
     fortune = random.choice(fortune_list)
     img.write_text_box((30, 30), fortune, box_width=290, font_filename=font,
                        font_size=40, color=color, place='center')
 
-
     img.save('sample-imagetext.png')
     os.system("lpr -o orientation-requested=6 sample-imagetext.png")
 
-
     print fortune
+
+while True:
+    led.pulse()
+    button.when_pressed = printfortune
+    sleep(0.1)
+
+
+
