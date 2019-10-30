@@ -1,5 +1,5 @@
 # coding=utf-8
-from gpiozero import LED, Button
+from gpiozero import PWMLED, Button
 import random
 from image_utils import ImageText
 import os
