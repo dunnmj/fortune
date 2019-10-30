@@ -3,7 +3,7 @@ from gpiozero import PWMLED, Button
 import random
 from image_utils import ImageText
 import os
-from time import sleep
+from signal import pause
 
 button = Button(17)
 led = PWMLED(18)
@@ -384,11 +384,12 @@ def printfortune():
     os.system("lpr -o orientation-requested=6 sample-imagetext.png")
 
     print fortune
+    led.pulse()
 
 while True:
     led.pulse()
     button.when_pressed = printfortune
-    sleep(0.1)
+    pause()
 
 
 
