@@ -383,7 +383,7 @@ def printfortune():
 
     img.save('sample-imagetext.png')
     sleep(5)
-    os.system("lpr -o orientation-requested=6 sample-imagetext.png")
+    os.system("lp -d EPSON_TM-T88V -o orientation-requested=6 sample-imagetext.png")
 
     print fortune
     led.value = 1
