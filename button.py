@@ -4,13 +4,14 @@ import random
 from image_utils import ImageText
 import os
 from signal import pause
+from time import sleep
 
 button = Button(17)
 led = PWMLED(18)
 
 
 def printfortune():
-    led.value = 1
+    led.pulse()
     fortune_list = [
         'A beautiful, smart, and loving person will be coming into your life.',
         'A dubious friend may be an enemy in camouflage.',
@@ -381,15 +382,16 @@ def printfortune():
                        font_size=40, color=color, place='center')
 
     img.save('sample-imagetext.png')
+    sleep(5)
     os.system("lpr -o orientation-requested=6 sample-imagetext.png")
 
     print fortune
-    led.pulse()
+    led.value = 1
 
-while True:
-    led.pulse()
-    button.when_pressed = printfortune
-    pause()
+
+led.value = 1
+button.when_pressed = printfortune
+pause()
 
 
 
