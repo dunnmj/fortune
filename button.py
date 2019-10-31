@@ -11,7 +11,7 @@ led = PWMLED(18)
 
 
 def printfortune():
-    led.pulse()
+    led.value = 0
     fortune_list = [
         'A beautiful, smart, and loving person will be coming into your life.',
         'A dubious friend may be an enemy in camouflage.',
@@ -376,8 +376,8 @@ def printfortune():
     text = 'Python is a cool programming language. You should learn it!'
     font = 'PAPYRUS.TTF'
     img = ImageText("ornate.jpg", background=(255, 255, 255, 200))  # 200 = alpha
-    sleep(5)
-    led.value = 0
+
+    
     fortune = random.choice(fortune_list)
     img.write_text_box((30, 30), fortune, box_width=290, font_filename=font,
                        font_size=40, color=color, place='center')
