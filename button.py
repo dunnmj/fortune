@@ -377,7 +377,7 @@ def printfortune():
     font = 'PAPYRUS.TTF'
     img = ImageText("ornate.jpg", background=(255, 255, 255, 200))  # 200 = alpha
 
-    
+
     fortune = random.choice(fortune_list)
     img.write_text_box((30, 30), fortune, box_width=290, font_filename=font,
                        font_size=40, color=color, place='center')
@@ -386,12 +386,8 @@ def printfortune():
     os.system("lp -d EPSON_TM-T88V -o orientation-requested=6 sample-imagetext.png")
 
     print fortune
-    led.value = 1
 
 
-led.value = 1
+led.pulse()
 button.when_pressed = printfortune
 pause()
-
-
-
