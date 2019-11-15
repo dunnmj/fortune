@@ -386,6 +386,7 @@ def printfortune():
     os.system("lp -d EPSON_TM-T88V -o orientation-requested=6 sample-imagetext.png")
 
     print fortune
+    led.pulse()
 
 
 led.pulse()
